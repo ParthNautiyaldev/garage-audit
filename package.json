@@ -1,0 +1,13 @@
+{
+  "name": "garage-audit",
+  "private": true,
+  "scripts": {
+    "setup": "npm install && npm install --prefix server && npm install --prefix client",
+    "dev": "concurrently -n server,client -c yellow,cyan \"npm run dev --prefix server\" \"npm run dev --prefix client\"",
+    "seed": "npm run seed --prefix server",
+    "db": "docker compose up -d"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}

@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+  --color-ink: #e7eef6;
+  --color-muted: #93a4b8;
+  --color-panel: #141c27;
+  --color-panel-2: #1c2836;
+  --color-line: #2d3c4e;
+  --color-bg: #0c1218;
+  --color-amber: #f0b429;
+  --color-danger: #f07178;
+  --color-ok: #3ecf8e;
+  --color-info: #79b8ff;
+}
+
+html { color-scheme: dark; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(1200px 500px at 10% -10%, rgba(240, 180, 41, 0.08), transparent 50%),
+    var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+}
+
+button, select { cursor: pointer; }
+button:disabled { cursor: not-allowed; opacity: 0.55; }
+
+@layer components {
+  .btn { @apply inline-flex items-center justify-center rounded-md px-3 py-2 text-sm font-medium; }
+  .btn-primary { @apply bg-amber text-bg hover:brightness-110; }
+  .btn-ghost { @apply border border-line bg-panel-2 text-ink hover:border-muted; }
+  .btn-danger { @apply border border-danger/40 text-danger hover:bg-danger/10; }
+  .field { @apply w-full rounded-md border border-line bg-bg px-3 py-2 text-sm text-ink outline-none focus:border-amber; }
+  .label { @apply mb-1 block text-xs font-medium uppercase tracking-wider text-muted; }
+  .card { @apply rounded-xl border border-line bg-panel; }
+}

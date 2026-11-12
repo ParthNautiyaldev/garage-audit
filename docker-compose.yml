@@ -1,0 +1,12 @@
+# Local database only. Shop data stays on this machine in the named volume.
+services:
+  mongo:
+    image: mongo:7
+    container_name: garage-audit-mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - garage_audit_mongo:/data/db
+
+volumes:
+  garage_audit_mongo:
